@@ -31,6 +31,11 @@
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
+
+      // '+' = select sibling
+      & + &__button {
+        background-color: var(--color-grey-light-3);
+      }
     }
 
     // Webkit = Chrome & Safari browsers
@@ -38,11 +43,6 @@
       font-weight: 100;
       color: var(--color-grey-light-4);
     }
-  }
-
-  // '+' = select sibling
-  &__input:focus + &__button {
-    background-color: var(--color-grey-light-3);
   }
 
   &__button {
