@@ -8,9 +8,16 @@
 }
 
 .header {
+  font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
   border-bottom: var(--color-grey-light-2);
+
+  display: flex;
+  // Space all content inside this container evenly across the x axis
+  justify-content: space-between;
+  // Align all content inside this container centered across the y axis
+  align-items: center;
 }
 
 .content {
