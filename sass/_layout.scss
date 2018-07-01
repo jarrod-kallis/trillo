@@ -28,10 +28,18 @@
   background-color: var(--color-grey-dark-1);
   // flex-grow, flex-shrink, flex-basis (width)
   flex: 0 0 18%;
+
+  display: flex;
+  // Change main direction of container from left-right to top-bottom
+  flex-direction: column;
+  // This pushed the ul.side-nav to the top and the .legal to the bottom
+  justify-content: space-between;
 }
 
 .hotel-view {
   background-color: #fff;
+  // Temp setting height so it acts as if there is a lot of content
+  height: 80rem;
   // hotel view must take up all the remaining width (width: 100%)
   flex: 1;
 }
