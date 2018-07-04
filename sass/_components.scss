@@ -213,7 +213,7 @@
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     padding: 1.5rem 3rem;
   }
 
@@ -234,7 +234,7 @@
   }
 
   &__icon-location {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
   }
 
   &__location {
@@ -266,7 +266,7 @@
   }
 
   &__rating-count {
-    font-size: .8rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
   }
 }
@@ -277,11 +277,11 @@
   color: var(--color-primary);
   font-size: inherit;
   border-bottom: 1px solid currentColor;
-  padding-bottom: .2rem;
+  padding-bottom: 0.2rem;
   display: inline-block;
   background-color: transparent;
   cursor: pointer;
-  transition: all .2s;
+  transition: all 0.2s;
 
   &:hover {
     color: var(--color-grey-dark-1);
@@ -303,11 +303,80 @@
 
   50% {
     transform: scale(1.05);
-    box-shadow: 0 1rem 4rem rbga(0,0,0,0.25);
+    box-shadow: 0 1rem 4rem rbga(0, 0, 0, 0.25);
   }
 
   100% {
     transform: scale(1);
     box-shadow: none;
+  }
+}
+
+// HOTEL DESCRIPTION
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+.list {
+  list-style: none;
+  margin: 3rem 0;
+  padding: 3rem 0;
+  border-top: var(--line);
+  border-bottom: var(--line);
+  // column-count: 2; // Instead used flex-wrap
+
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+
+    // Can't change the SVG's color if we use the 'background-image' property
+    &::before {
+      content: '';
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      margin-right: 0.7rem;
+
+      // Older browsers
+      //background-image: url(../img/chevron-thin-right.svg);
+      //background-size: cover;
+
+      // Newer browsers
+      background-color: var(--color-primary);
+      mask-image: url(../img/chevron-thin-right.svg);
+      mask-size: cover;
+    }
+  }
+}
+
+// HOTEL RECOMMEND
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-3);
+
+  display: flex;
+  align-items: center;
+  // justify-content: space-between; // Instead used margin-right: auto;
+
+  &__count {
+    margin-right: auto;
+  }
+
+  &__friends {
+  }
+
+  &__photo {
+    box-sizing: content-box;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 0.3rem solid #fff;
+
+    &:not(:last-child) {
+      margin-right: -1.5rem;
+    }
   }
 }
