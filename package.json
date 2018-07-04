@@ -4,14 +4,17 @@
   "description": "Trillo App",
   "main": "index.js",
   "scripts": {
-    "watch:sass": "node-sass sass/main.scss css/style.css -w -r",
+    "dep:watch:sass": "node-sass sass/main.scss css/style.css -w -r",
     "compile:sass": "node-sass sass/main.scss css/style.compiled.css",
     "prefix:css": "postcss --use autoprefixer -b \"last 10 versions\" css/style.compiled.css -o css/style.prefix.css",
     "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
     "rename:css": "rename-files css \"style.compiled.css\" \"style.css\"",
     "server": "live-server",
-    "start": "concurrently \"yarn compile:sass && yarn run rename:css && yarn watch:sass\" \"yarn server\"",
-    "build:css": "yarn compile:sass && yarn prefix:css && yarn compress:css"
+    "dep:start": "concurrently \"yarn compile:sass && yarn run rename:css && yarn watch:sass\" \"yarn server\"",
+    "build:css": "yarn compile:sass && yarn prefix:css && yarn compress:css",
+    "compile:prefix:sass": "node-sass sass/main.scss css/style.css|postcss css/style.css -u autoprefixer -r",
+    "watch:sass": "watch \"yarn compile:prefix:sass\" sass",
+    "start": "concurrently \"yarn watch:sass\" \"yarn server\""
   },
   "author": "Jarrod Kallis",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "concurrently": "^3.5.1",
     "node-sass": "^4.5.3",
     "postcss-cli": "^4.1.1",
-    "rename-files": "^0.0.2"
+    "rename-files": "^0.0.2",
+    "watch": "^1.0.2"
   }
 }
