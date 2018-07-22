@@ -24,6 +24,12 @@
   justify-content: space-between;
   // Align all content inside this container centered across the y axis
   align-items: center;
+
+  @media only screen and (max-width: $breakpoint-smallest) {
+    flex-wrap: wrap;
+    height: 11rem;
+    align-content: space-around;
+  }
 }
 
 .content {
@@ -62,6 +68,10 @@
   @media only screen and (max-width: $breakpoint-medium) {
     padding: 3rem;
   }
+
+  @media only screen and (max-width: $breakpoint-small) {
+    flex-direction: column;
+  }
 }
 
 .description {
@@ -74,6 +84,11 @@
   @media only screen and (max-width: $breakpoint-medium) {
     padding: 2rem;
     margin-right: 3rem;
+  }
+
+  @media only screen and (max-width: $breakpoint-small) {
+    margin-right: 0;
+    margin-bottom: 3rem;
   }
 }
 
