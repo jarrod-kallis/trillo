@@ -33,6 +33,10 @@
     // Move the button inside the input
     margin-right: -3.25rem;
 
+    @media only screen and (max-width: $breakpoint-smallest) {
+      margin-right: 0rem;
+    }
+
     &:focus {
       outline: none;
       width: 100%;
@@ -41,6 +45,10 @@
       // '+' = select sibling
       & + &__button {
         background-color: var(--color-grey-light-3);
+      }
+
+      @media only screen and (max-width: $breakpoint-smallest) {
+        width: 95%;
       }
     }
 
